@@ -171,8 +171,8 @@ Value *tokenize() {
                 strncat(curr, &nextChar, 1);
             } else if (nextChar == '\n') { // NEW LINE
             } else {
-                printf("Syntax Error: don't know what's being read.\n");
-                texit(0);
+                // printf("Syntax Error: don't know what's being read.\n");
+                // texit(0);
             }
         }
 

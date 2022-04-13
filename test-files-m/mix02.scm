@@ -1,5 +1,7 @@
-(define f (let ((z 5) (x 3))
-            (lambda (w)
-                  (if w z x))))
-(f #t)
-(f #f)
+(define length-list
+  (lambda (lst)
+    (if (null? lst)
+        0
+        (+ 1 (length-list (cdr lst))))))
+(length-list (quote ()))
+(length-list (quote (4 5 6)))

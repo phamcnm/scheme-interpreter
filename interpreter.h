@@ -3,7 +3,7 @@
 
 void interpret(Value *tree);
 
-Value *eval(Value *expr, Frame *frame, Frame** globalFrameAddress);
+Value *eval(Value *expr, Frame *frame);
 
 #endif
 

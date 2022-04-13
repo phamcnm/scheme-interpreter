@@ -3,11 +3,18 @@
 
 typedef enum {
 	INT_TYPE, DOUBLE_TYPE, STR_TYPE, CONS_TYPE, NULL_TYPE, PTR_TYPE,
-	OPEN_TYPE, CLOSE_TYPE, BOOL_TYPE, SYMBOL_TYPE, VOID_TYPE, CLOSURE_TYPE,
-	PRIMITIVE_TYPE,
+	OPEN_TYPE, CLOSE_TYPE, BOOL_TYPE, SYMBOL_TYPE, VOID_TYPE, 
+
+	UNSPECIFIED_TYPE,
+
+	// to store users-defined functions
+	CLOSURE_TYPE,
+
+	// to store built-in functions
+	PRIMITIVE_TYPE
 	
 	// Types below are only for bonus work (feel free to comment them out)
-	OPENBRACKET_TYPE, CLOSEBRACKET_TYPE, DOT_TYPE, SINGLEQUOTE_TYPE
+	// OPENBRACKET_TYPE, CLOSEBRACKET_TYPE, DOT_TYPE, SINGLEQUOTE_TYPE
 } valueType;
 
 struct Value {
@@ -17,11 +24,15 @@ struct Value {
 		double d;
 		char *s;
 		void *p;
+
+		//pf is a variable that points to a function that accepts a pointer to a Value and returns a pointer to a Value
 		struct Value *(*pf)(struct Value *);
+
 		struct ConsCell {
 			struct Value *car;
 			struct Value *cdr;
 		} c;
+
 		struct Closure {
 			// List of parameter names
 			struct Value *paramNames;
@@ -32,8 +43,6 @@ struct Value {
 		} cl;
 	};
 };
-// Where do you store a boolean in the union? It's up to you, but I recommend 
-// using an int (0 for false, 1 for true).
 
 typedef struct Value Value;
 

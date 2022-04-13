@@ -1,2 +1,1 @@
-(define f (lambda (x) 4))
-(f 8)
+(cons 3 (cons (+ 3 1) (cons (+ 5 6) (quote (5 6)))))

@@ -86,6 +86,7 @@ def clean_output(output: str) -> str:
               .rstrip())  # Whitespace at end
 
     return result
+    # return output
 
 
 def run_tests_with_valgrind(executable_command, test_path) -> TestResult:

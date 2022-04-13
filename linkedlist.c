@@ -33,7 +33,7 @@ void printValue(Value *v) {
 			printf("");
 			break;
 		case CONS_TYPE:
-			printf("");
+			printf("-cons-");
 			break;
 		case OPEN_TYPE:
 			printf("(");
@@ -80,6 +80,9 @@ void printType(Value *v) {
 			break;
 		case CLOSE_TYPE:
 			printf(" -close- ");
+			break;
+		case CLOSURE_TYPE:
+			printf(" -closure- ");
 			break;
 		default:
 			break;
